@@ -1,21 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 export const LogIn: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(document.createElement("input"));
   const passwordRef = useRef<HTMLInputElement>(document.createElement("input"));
-  const passwordConfirmRef = useRef<HTMLInputElement>(document.createElement("input"));
   const { signup } = useAuth();
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match");
-    }
 
     try {
       setError('');
@@ -48,7 +44,7 @@ export const LogIn: React.FC = () => {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Need an account? Sign Up
+        Need an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
   );
