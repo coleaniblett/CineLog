@@ -10,7 +10,7 @@ import { Settings } from '../Settings/Settings';
 
 function App() {
   return (
-      <div className="w=100 bg-danger">
+      <div className="bg-danger">
         <Router>
           <AuthProvider>
             <Routes>
