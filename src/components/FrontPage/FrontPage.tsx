@@ -5,8 +5,8 @@ import FillerImage2 from '../../assets/The Whale.jpg';
 
 export const FrontPage: React.FC = () => {
   return (
-    <div className="h-100 w-100 d-inline-block bg-secondary">
-      <Carousel className="featured-movies">
+    <div className="h-100 w-100 d-inline-block bg-danger">
+      <Carousel className="featured-movies border-top border-warning">
         <Carousel.Item>
           <img 
             className="d-block w-75 p-3 m-auto"
@@ -28,7 +28,7 @@ export const FrontPage: React.FC = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Carousel className="saved-movies">
+      <Carousel className="saved-movies border-top border-warning">
         <Carousel.Item>
           <img 
             className="d-block w-75 p-3 m-auto"
@@ -50,7 +50,7 @@ export const FrontPage: React.FC = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Carousel className="reviewed-movies">
+      <Carousel className="reviewed-movies border-top border-warning">
         <Carousel.Item>
           <img 
             className="d-block w-75 p-3 m-auto"
