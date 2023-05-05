@@ -4,9 +4,9 @@ import { MainContent } from "../MainContent/MainContent";
 
 export const Home: React.FC = () => {
   return (
-    <div className="home w-100" >
+    <div className="home" >
       <Header />
-      <MainContent />
+
     </div>
   );
 }
