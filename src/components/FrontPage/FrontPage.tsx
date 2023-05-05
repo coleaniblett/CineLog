@@ -9,7 +9,7 @@ export const FrontPage: React.FC = () => {
       <Carousel className="featured-movies">
         <Carousel.Item>
           <img 
-            className="d-block w-100"
+            className="d-block w-75 p-3 m-auto"
             src={FillerImage}
             alt="Everything Everywhere All At Once"
           />
@@ -19,7 +19,7 @@ export const FrontPage: React.FC = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img 
-            className="d-block w-100"
+            className="d-block w-75 p-3 m-auto"
             src={FillerImage2}
             alt="The Whale"
           />
@@ -31,7 +31,7 @@ export const FrontPage: React.FC = () => {
       <Carousel className="saved-movies">
         <Carousel.Item>
           <img 
-            className="d-block w-100"
+            className="d-block w-75 p-3 m-auto"
             src={FillerImage}
             alt="Everything Everywhere All At Once"
           />
@@ -41,7 +41,7 @@ export const FrontPage: React.FC = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img 
-            className="d-block w-100"
+            className="d-block w-75 p-3 m-auto"
             src={FillerImage2}
             alt="The Whale"
           />
@@ -53,7 +53,7 @@ export const FrontPage: React.FC = () => {
       <Carousel className="reviewed-movies">
         <Carousel.Item>
           <img 
-            className="d-block w-100"
+            className="d-block w-75 p-3 m-auto"
             src={FillerImage}
             alt="Everything Everywhere All At Once"
           />
@@ -63,7 +63,7 @@ export const FrontPage: React.FC = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img 
-            className="d-block w-100"
+            className="d-block w-75 p-3 m-auto"
             src={FillerImage2}
             alt="The Whale"
           />
@@ -71,7 +71,7 @@ export const FrontPage: React.FC = () => {
             <h3>The Whale</h3>
           </Carousel.Caption>
         </Carousel.Item>
-      </Carousel>
+      </Carousel> 
     </div>
   );
 }
