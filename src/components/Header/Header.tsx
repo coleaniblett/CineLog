@@ -1,7 +1,9 @@
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Searchbar } from '../Searchbar/Searchbar';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+// TODO: add "Log out" button
 
 export const Header: React.FC = () => {
   return (
