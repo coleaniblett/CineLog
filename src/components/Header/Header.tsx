@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Searchbar } from '../Searchbar/Searchbar';
+
+import { Search } from '../Search/Search';
 import { Link } from 'react-router-dom';
 
 // TODO: add "Log out" button
 
 export const Header: React.FC = () => {
-  return (
+  
+return (
     <div className="pb-3">
       <Navbar>
         <Container>
@@ -21,7 +23,7 @@ export const Header: React.FC = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Searchbar />
+      <Search />
     </div>
   );
 }

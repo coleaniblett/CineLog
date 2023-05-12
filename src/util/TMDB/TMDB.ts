@@ -11,7 +11,7 @@ export const TMDB = {
   async getMovies(searchTerm: string) {
     const response = await axios.get(`${apiURL}&query=${searchTerm}`);
     const data = response.data.results;
-    console.log(data);
+    return data;
 
     
   }
