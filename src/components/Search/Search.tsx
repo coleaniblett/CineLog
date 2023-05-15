@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, MouseEvent } from 'react';
 import { TMDB } from '../../util/TMDB/TMDB';
 import { Searchbar } from '../Searchbar/Searchbar';
 import { SearchResults } from '../SearchResults/SearchResults';
@@ -20,8 +20,17 @@ export const Search: React.FC = () => {
     newMovies.then(result => setMovies(result.map((movie: { title: any; }) => movie.title)));
   }, [searchTerm])
 
+  const handleMouseOver = (e: MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setSearch(true);
+  }
+  const handleMouseOut = (e: MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setSearch(false);
+  }
+
   return (
-    <div>
+    <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       <Searchbar setSearchTerm={setSearchterm} setSearch={setSearch} />
       {search && <SearchResults movies={movies} />}
     </div>

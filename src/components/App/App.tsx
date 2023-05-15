@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Reviews } from '../Reviews/Reviews';
 import { Saved } from '../Saved/Saved';
 import { Settings } from '../Settings/Settings';
+import { Movie } from '../Movie/Movie';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/saved" element={<Saved />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/movie" element={<Movie />} />
             </Routes>
           </AuthProvider>
         </Router>
