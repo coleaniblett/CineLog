@@ -1,14 +1,16 @@
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-
-import { Search } from '../Search/Search';
 import { Link } from 'react-router-dom';
+import { Search } from '../Search/Search';
 
 // TODO: add "Log out" button
 
-export const Header: React.FC = () => {
+interface Props {
+  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
+}
 
-return (
+export const Header: React.FC<Props> = ({ setMovie }: Props) => {
+  return (
     <div className="pb-3">
       <Navbar>
         <Container>
@@ -23,7 +25,7 @@ return (
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Search />
+      <Search setMovie={setMovie} />
     </div>
   );
 }

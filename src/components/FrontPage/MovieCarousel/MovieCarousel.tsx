@@ -1,15 +1,13 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import FillerImage from '../../../assets/Everything_Everywhere_All_at_Once.jpg';
-import FillerImage2 from '../../../assets/The Whale.jpg';
 
-type Movie = {
-  name: string,
-  image: any
+type tempMovieType = {
+  image: any,
+  name: string
 }
 
-type Props = {
-  movies: Movie[]
+interface Props {
+  movies: tempMovieType[]
 }
 
 export const MovieCarousel: React.FC<Props> = ({movies}: Props) => {

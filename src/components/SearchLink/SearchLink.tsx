@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { MovieType } from '../../util/MovieType';
 
-type Props = {
-  title: string;
+
+interface Props {
+  movie: MovieType,
+  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-export const SearchLink: React.FC<Props> = ({ title }: Props) => {
+export const SearchLink: React.FC<Props> = ({ movie, setMovie }: Props) => {
+
+  const handleClick = () => {
+    setMovie(movie.id);
+  }
+
   return (
-    /*<a className="dropdown-item bg-white border w-75 m-auto">
-      {title}
-    </a>*/
-    /*<Nav.Link className="dropdown-item bg-white border w-75 m-auto" onClick={event => console.log("Test")}>
-      <Link to="/movie" onClick={event => console.log("Test")}>
-        {title}
-      </Link>
-    </Nav.Link>*/
-    <Link to="/movie" onClick={event => console.log("Test")}>
+    <Link to="/movie">
       <option 
-        label={title} 
-        value={title} 
+        label={movie.title} 
+        value={movie.title} 
         className="dropdown-item bg-white border w-75 m-auto"
+        onClick={handleClick}
         >
       </option>
     </Link>

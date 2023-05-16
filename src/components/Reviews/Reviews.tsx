@@ -1,10 +1,14 @@
 import React from 'react';
 import { Header } from '../Header/Header';
 
-export const Reviews: React.FC = () => {
+interface Props {
+  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
+}
+
+export const Reviews: React.FC<Props> = ({ setMovie }: Props) => {
   return (
     <div>
-      <Header />
+      <Header setMovie={setMovie} />
     </div>
   );
 }

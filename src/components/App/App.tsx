@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Signup } from '../Signup/Signup';
 import { LogIn } from '../LogIn/LogIn';
 import { Home } from '../Home/Home';
@@ -9,7 +9,9 @@ import { Saved } from '../Saved/Saved';
 import { Settings } from '../Settings/Settings';
 import { Movie } from '../Movie/Movie';
 
-function App() {
+export const App: React.FC = () => {
+  const [movie, setMovie] = useState<number | null>(null);
+
   return (
       <div className="bg-danger">
         <Router>
@@ -17,11 +19,11 @@ function App() {
             <Routes>
               <Route path="/login" element={<LogIn />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/reviews" element={<Reviews />} />
-              <Route path="/saved" element={<Saved />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/movie" element={<Movie />} />
+              <Route path="/" element={<Home setMovie={setMovie} />} />
+              <Route path="/reviews" element={<Reviews setMovie={setMovie} />} />
+              <Route path="/saved" element={<Saved setMovie={setMovie} />} />
+              <Route path="/settings" element={<Settings setMovie={setMovie} />} />
+              <Route path="/movie" element={<Movie setMovie={setMovie} movieID={movie} />} />
             </Routes>
           </AuthProvider>
         </Router>
@@ -29,5 +31,3 @@ function App() {
     
   );
 }
-
-export default App;

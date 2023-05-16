@@ -1,5 +1,4 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
 import FillerImage from '../../assets/Everything_Everywhere_All_at_Once.jpg';
 import FillerImage2 from '../../assets/The Whale.jpg';
 import { MovieCarousel } from './MovieCarousel/MovieCarousel';

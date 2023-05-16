@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { TMDB } from "../../util/TMDB/TMDB";
 
 // TODO: fix type
-type Props = {
-  setSearchTerm: any,
-  setSearch: any;
+interface Props {
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>,
+  setSearch: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const Searchbar: React.FC<Props> = ({ setSearchTerm, setSearch }: Props) => {

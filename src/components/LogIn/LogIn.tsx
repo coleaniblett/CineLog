@@ -6,14 +6,13 @@ import { Link, useNavigate } from 'react-router-dom';
 export const LogIn: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(document.createElement("input"));
   const passwordRef = useRef<HTMLInputElement>(document.createElement("input"));
-  const { login } = useAuth();
+  const { login } = useAuth(); // type?
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // type?
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     try {
       setError('');
       setLoading(true);
@@ -22,7 +21,6 @@ export const LogIn: React.FC = () => {
     } catch {
       setError("Failed to sign in.");
     }
-
     setLoading(false);
   }
 

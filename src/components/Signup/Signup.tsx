@@ -3,22 +3,20 @@ import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 
-export const Signup = () => {
+export const Signup: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(document.createElement("input"));
   const passwordRef = useRef<HTMLInputElement>(document.createElement("input"));
   const passwordConfirmRef = useRef<HTMLInputElement>(document.createElement("input"));
-  const { signup } = useAuth();
+  const { signup } = useAuth(); // type?
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // type?
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match");
     }
-
     try {
       setError('');
       setLoading(true);
@@ -27,7 +25,6 @@ export const Signup = () => {
     } catch {
       setError("Failed to create an account.");
     }
-
     setLoading(false);
   }
 

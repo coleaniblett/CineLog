@@ -1,10 +1,14 @@
 import React from 'react';
 import { Header } from '../Header/Header';
 
-export const Settings: React.FC = () => {
+type Props = {
+  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
+}
+
+export const Settings: React.FC<Props> = ({ setMovie }: Props) => {
   return (
     <div>
-      <Header />
+      <Header setMovie={setMovie} />
     </div>
   );
 }
