@@ -18,12 +18,12 @@ export const Movie: React.FC<Props> = ({ setMovie, movieID }: Props) => {
       })
     }
     console.log(movieData);
-  }, [])
+  }, [movieID])
 
   return (
     <div>
       <Header setMovie={setMovie} />
-      <h1>{movieData.title}</h1>
+      {movieData && movieData.title}
     </div>
   )
 }

@@ -11,6 +11,7 @@ interface Props {
 export const SearchLink: React.FC<Props> = ({ movie, setMovie }: Props) => {
 
   const handleClick = () => {
+    console.log("setting " + movie.id);
     setMovie(movie.id);
   }
 
