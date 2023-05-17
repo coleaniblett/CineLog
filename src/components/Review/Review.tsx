@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../Header/Header';
 import { MovieDataType } from '../../util/MovieDataType';
 
@@ -21,7 +21,7 @@ const getDay = () => {
   return new Date().getDate();
 }
 
-const getOptions = (start: number, range: number, selected: number) => {
+/*const getOptions = (start: number, range: number, selected: number) => {
   let nums: (number | string)[] = new Array();
   nums.push("?");
   for (let i: number = start; i < start + range; i++) {
@@ -38,14 +38,39 @@ const getOptions = (start: number, range: number, selected: number) => {
       )
     }
   })
+}*/
+
+const getOptions = (start: number, range: number, selected: number) => {
+  let nums: (number | string)[] = new Array();
+  nums.push("?");
+  for (let i: number = start; i < start + range; i++) {
+    nums.push(i);
+  }
+  return nums.map((num) => {
+    return (
+      <option value={`${num}`}>{num}</option>
+    )
+  });
 }
 
 export const Review: React.FC<Props> = ({ setMovie, movie }: Props) => {
+  // group date states together?
+  const [day, setDay] = useState<number>();
+  const [month, setmonth] = useState<number>();
+  const [year, setyear] = useState<number>();
   const [reviewText, setReviewText] = useState<string>("");
+
+  useEffect(() => {
+    setDay(getDay());
+    setmonth(getMonth());
+    setyear(getYear());
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>)  => {
     setReviewText(e.currentTarget.value);
   }
+
+
 
   return (
     <div>
@@ -59,13 +84,13 @@ export const Review: React.FC<Props> = ({ setMovie, movie }: Props) => {
         <form>
           <label>Watch date: </label>
           <br/>
-          <select>
+          <select defaultValue={getMonth()}>
             { getOptions(1, 12, getMonth()) }
           </select>
-          <select>
+          <select defaultValue={getDay()}>
             { getOptions(1, 31, getDay()) }
           </select>
-          <select>
+          <select defaultValue={getYear()}>
             { getOptions((getYear() - 24), 25, getYear()) }
           </select>
           <br/><br/>
