@@ -15,7 +15,7 @@ export const MovieCarousel: React.FC<Props> = ({movies}: Props) => {
     <Carousel className="featured-movies border-top border-warning">
       {movies.map(movie => {
         return (
-          <Carousel.Item>
+          <Carousel.Item key={movie.name}>
             <img
               className="d-block w-75 p-3 m-auto"
               src={movie.image}
