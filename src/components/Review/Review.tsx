@@ -9,12 +9,21 @@ interface Props {
   movie: MovieDataType | null;
 }
 
-const getDate = () => {
-  let curDate = new Date();
-  let curFullYear = curDate.getFullYear().toString(),
-    curMonth = curDate.getMonth().toString(),
-    curDay = curDate.getDate().toString();
-  return `${curMonth}-${curDay}-${curFullYear}`
+const getYear = () => {
+  return new Date().getFullYear();
+}
+
+const getOptions = (start: number, range: number) => {
+  let nums: (number | string)[] = new Array();
+  nums.push("?");
+  for (let i: number = start; i < start + range; i++) {
+    nums.push(i);
+  }
+  return nums.map((num) => {
+    return (
+      <option value={`${num}`}>{num}</option>
+    )
+  })
 }
 
 export const Review: React.FC<Props> = ({ setMovie, movie }: Props) => {
@@ -35,7 +44,15 @@ export const Review: React.FC<Props> = ({ setMovie, movie }: Props) => {
         />
         <form>
           <label>Watch date: </label>
-          <p>{getDate()}</p>
+          <select>
+            { getOptions(1, 12) }
+          </select>
+          <select>
+            { getOptions(1, 31) }
+          </select>
+          <select>
+            { getOptions((getYear() - 24), 25) }
+          </select>
           <label htmlFor="rating-section">Rating: </label>
           <div className="rating" id="rating-section">
             <input type="radio" id="one-star"></input>
