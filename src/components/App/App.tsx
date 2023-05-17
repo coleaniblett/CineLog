@@ -15,11 +15,6 @@ export const App: React.FC = () => {
   //const [movie, setMovie] = useState<number | null>(null);
   const [movie, setMovie] = useState<MovieDataType | null>(null);
 
-  useEffect(() => {
-    console.log("The value of movie is: ");
-    console.log(movie);
-  }, [movie]);
-
   return (
     <div className="bg-danger">
       <Router>

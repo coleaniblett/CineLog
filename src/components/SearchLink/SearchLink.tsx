@@ -11,7 +11,6 @@ interface Props {
 export const SearchLink: React.FC<Props> = ({ movie, setMovie }: Props) => {
 
   const handleClick = () => {
-    console.log("inside SearchLink");
     let newMoviePromise: Promise<MovieDataType> = getMovieDataType(movie.id);
     let newMovie = newMoviePromise.then(result => { setMovie(result); });
   }

@@ -11,11 +11,6 @@ interface Props {
 
 export const Movie: React.FC<Props> = ({ setMovie, movie }: Props) => {
 
-  useEffect(() => {
-    console.log("Here");
-    console.log(movie);
-  }, [movie]);
-
   return (
     <div>
       <Header setMovie={setMovie} />

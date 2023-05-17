@@ -22,13 +22,8 @@ export const TMDB = {
   },
 
   async getMovie(movieID: number): Promise<any> {
-    //console.log("calling getMovie: " + movieID);
-    //console.log(`${apiURLAlt}${movieID}?api_key=${apiKey}`);
     let response = await axios.get(`${apiURLAlt}${movieID}?api_key=${apiKey}`);
-    console.log("respnse.data");
-    console.log(response.data);
     return response.data;
-    //const data = response.data.results;
   }
 
 };
