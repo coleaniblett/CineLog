@@ -15,18 +15,26 @@ export const Header: React.FC<Props> = ({ setMovie }: Props) => {
     <div className="pb-3">
       <Navbar>
         <Container>
-          <Navbar.Brand href="#home" className="me-auto"><Link to="/" className="link-warning">CineLog</Link></Navbar.Brand>
+          <div className="navbar-brand me-auto">
+            <Link to="/" className="nav-link link-warning">CineLog</Link>
+          </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-            <Nav>
-              <Nav.Link href="#home"><Link to="/reviews" className="link-warning">Reviews</Link></Nav.Link>
-              <Nav.Link href="#home"><Link to="/saved" className="link-warning">Saved</Link></Nav.Link>
-              <Nav.Link href="#home"><Link to="/settings" className="link-warning">Settings</Link></Nav.Link>
-            </Nav>
+            <div className="navbar-nav">
+              <div className="nav-item">
+                <Link to="/reviews" className="nav-link link-warning">Reviews</Link>
+              </div>
+              <div className="nav-item">
+                <Link to="/saved" className="nav-link link-warning">Saved</Link>
+              </div>
+              <div className="nav-item">
+                <Link to="/settings" className="nav-link link-warning">Settings</Link>
+              </div>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <Search setMovie={setMovie} />
     </div>
   );
-}
+};
