@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '../Header/Header';
 import { TMDB } from '../../util/TMDB/TMDB';
+import { MovieButtons } from '../MovieButtons/MovieButtons';
 
 interface Props {
   setMovie: React.Dispatch<React.SetStateAction<number | null>>,
@@ -34,6 +35,7 @@ export const Movie: React.FC<Props> = ({ setMovie, movieID }: Props) => {
           src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} 
         />
       </div>}
+      <MovieButtons />
     </div>
   )
 }

@@ -8,6 +8,7 @@ import { Reviews } from '../Reviews/Reviews';
 import { Saved } from '../Saved/Saved';
 import { Settings } from '../Settings/Settings';
 import { Movie } from '../Movie/Movie';
+import { Review } from '../Review/Review';
 
 export const App: React.FC = () => {
   const [movie, setMovie] = useState<number | null>(null);
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
               <Route path="/saved" element={<Saved setMovie={setMovie} />} />
               <Route path="/settings" element={<Settings setMovie={setMovie} />} />
               <Route path="/movie" element={<Movie setMovie={setMovie} movieID={movie} />} />
+              <Route path="/review" element={<Review setMovie={setMovie} />} />
             </Routes>
           </AuthProvider>
         </Router>
