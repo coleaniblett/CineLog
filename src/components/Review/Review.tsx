@@ -13,16 +13,30 @@ const getYear = () => {
   return new Date().getFullYear();
 }
 
-const getOptions = (start: number, range: number) => {
+const getMonth = () => {
+  return new Date().getMonth();
+}
+
+const getDay = () => {
+  return new Date().getDate();
+}
+
+const getOptions = (start: number, range: number, selected: number) => {
   let nums: (number | string)[] = new Array();
   nums.push("?");
   for (let i: number = start; i < start + range; i++) {
     nums.push(i);
   }
   return nums.map((num) => {
-    return (
-      <option value={`${num}`}>{num}</option>
-    )
+    if (num != selected) {
+      return (
+        <option value={`${num}`}>{num}</option>
+      )
+    } else {
+      return (
+        <option value={`${num}`} selected>{num}</option>
+      )
+    }
   })
 }
 
@@ -39,20 +53,22 @@ export const Review: React.FC<Props> = ({ setMovie, movie }: Props) => {
       {movie && <div className="p-3 d-flex flex-column">
         <h3 className="display-4 text-center">{movie.title}</h3>
         <img 
-          className="p-2 w-50 m-auto"
+          className="p-2 w-75 m-auto"
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
         />
         <form>
           <label>Watch date: </label>
+          <br/>
           <select>
-            { getOptions(1, 12) }
+            { getOptions(1, 12, getMonth()) }
           </select>
           <select>
-            { getOptions(1, 31) }
+            { getOptions(1, 31, getDay()) }
           </select>
           <select>
-            { getOptions((getYear() - 24), 25) }
+            { getOptions((getYear() - 24), 25, getYear()) }
           </select>
+          <br/><br/>
           <label htmlFor="rating-section">Rating: </label>
           <div className="rating" id="rating-section">
             <input type="radio" id="one-star"></input>
