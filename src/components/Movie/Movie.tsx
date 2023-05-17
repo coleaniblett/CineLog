@@ -23,7 +23,17 @@ export const Movie: React.FC<Props> = ({ setMovie, movieID }: Props) => {
   return (
     <div>
       <Header setMovie={setMovie} />
-      {movieData && movieData.title}
+      {movieData && <div className="d-flex flex-column justify-content-center">
+        <h1
+          className="display-1 text-center"
+        >
+          {movieData.title}
+        </h1>
+        <img 
+          className="p-4"
+          src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} 
+        />
+      </div>}
     </div>
   )
 }
