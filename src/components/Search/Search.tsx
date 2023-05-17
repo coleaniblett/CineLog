@@ -3,9 +3,10 @@ import { TMDB } from '../../util/TMDB/TMDB';
 import { Searchbar } from '../Searchbar/Searchbar';
 import { SearchResults } from '../SearchResults/SearchResults';
 import { MovieType } from '../../util/MovieType';
+import { MovieDataType } from '../../util/MovieDataType';
 
 interface Props {
-  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
+  setMovie: React.Dispatch<React.SetStateAction<MovieDataType | null>>;
 }
 
 export const Search: React.FC<Props> = ({ setMovie }: Props) => {

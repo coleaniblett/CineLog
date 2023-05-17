@@ -1,10 +1,11 @@
 import React from 'react';
 import { SearchLink } from '../SearchLink/SearchLink';
 import { MovieType } from '../../util/MovieType';
+import { MovieDataType } from '../../util/MovieDataType';
 
 interface Props {
   movies: MovieType[],
-  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
+  setMovie: React.Dispatch<React.SetStateAction<MovieDataType | null>>;
 }
 
 

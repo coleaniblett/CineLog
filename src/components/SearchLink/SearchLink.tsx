@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MovieType } from '../../util/MovieType';
-
+import { MovieDataType, getMovieDataType } from '../../util/MovieDataType';
 
 interface Props {
   movie: MovieType,
-  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
+  setMovie: React.Dispatch<React.SetStateAction<MovieDataType | null>>;
 }
 
 export const SearchLink: React.FC<Props> = ({ movie, setMovie }: Props) => {
 
   const handleClick = () => {
-    setMovie(movie.id);
+    console.log("inside SearchLink");
+    let newMoviePromise: Promise<MovieDataType> = getMovieDataType(movie.id);
+    let newMovie = newMoviePromise.then(result => { setMovie(result); });
   }
 
   return (

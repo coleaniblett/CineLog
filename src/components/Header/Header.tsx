@@ -2,11 +2,12 @@ import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Search } from '../Search/Search';
+import { MovieDataType } from '../../util/MovieDataType';
 
 // TODO: add "Log out" button
 
 interface Props {
-  setMovie: React.Dispatch<React.SetStateAction<number | null>>;
+  setMovie: React.Dispatch<React.SetStateAction<MovieDataType | null>>;
 }
 
 export const Header: React.FC<Props> = ({ setMovie }: Props) => {
