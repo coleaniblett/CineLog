@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Header } from '../Header/Header';
 import { MovieDataType } from '../../util/MovieDataType';
 
 // TODO: replace rating-section radio with highlight-on-hoven star buttons
@@ -21,25 +20,6 @@ const getDay = () => {
   return new Date().getDate();
 }
 
-/*const getOptions = (start: number, range: number, selected: number) => {
-  let nums: (number | string)[] = new Array();
-  nums.push("?");
-  for (let i: number = start; i < start + range; i++) {
-    nums.push(i);
-  }
-  return nums.map((num) => {
-    if (num != selected) {
-      return (
-        <option value={`${num}`}>{num}</option>
-      )
-    } else {
-      return (
-        <option value={`${num}`} selected>{num}</option>
-      )
-    }
-  })
-}*/
-
 const getOptions = (start: number, range: number, selected: number) => {
   let nums: (number | string)[] = new Array();
   nums.push("?");
@@ -57,24 +37,33 @@ export const Review: React.FC<Props> = ({ setMovie, movie }: Props) => {
   // group date states together?
   const [day, setDay] = useState<number>();
   const [month, setmonth] = useState<number>();
-  const [year, setyear] = useState<number>();
+  const [year, setYear] = useState<number>();
   const [reviewText, setReviewText] = useState<string>("");
 
   useEffect(() => {
     setDay(getDay());
     setmonth(getMonth());
-    setyear(getYear());
+    setYear(getYear());
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>)  => {
     setReviewText(e.currentTarget.value);
   }
 
+  const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setmonth(Number(e.target.value));
+  }
 
+  const handleDayChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setDay(Number(e.target.value));
+  }
+
+  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setYear(Number(e.target.value));
+  }
 
   return (
     <div>
-      <Header setMovie={setMovie} />
       {movie && <div className="p-3 d-flex flex-column">
         <h3 className="display-4 text-center">{movie.title}</h3>
         <img 
@@ -84,13 +73,13 @@ export const Review: React.FC<Props> = ({ setMovie, movie }: Props) => {
         <form>
           <label>Watch date: </label>
           <br/>
-          <select defaultValue={getMonth()}>
+          <select defaultValue={getMonth()} onChange={handleMonthChange}>
             { getOptions(1, 12, getMonth()) }
           </select>
-          <select defaultValue={getDay()}>
+          <select defaultValue={getDay()} onChange={handleYearChange}>
             { getOptions(1, 31, getDay()) }
           </select>
-          <select defaultValue={getYear()}>
+          <select defaultValue={getYear()} onChange={handleYearChange}>
             { getOptions((getYear() - 24), 25, getYear()) }
           </select>
           <br/><br/>

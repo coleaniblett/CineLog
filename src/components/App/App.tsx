@@ -10,6 +10,7 @@ import { Settings } from '../Settings/Settings';
 import { Movie } from '../Movie/Movie';
 import { Review } from '../Review/Review';
 import { MovieDataType } from '../../util/MovieDataType';
+import { Header } from '../Header/Header';
 
 export const App: React.FC = () => {
   //const [movie, setMovie] = useState<number | null>(null);
@@ -19,6 +20,7 @@ export const App: React.FC = () => {
     <div className="bg-danger">
       <Router>
         <AuthProvider>
+          <Header setMovie={setMovie} />
           <Routes>
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<Signup />} />

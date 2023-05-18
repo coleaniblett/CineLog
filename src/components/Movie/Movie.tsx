@@ -13,7 +13,6 @@ export const Movie: React.FC<Props> = ({ setMovie, movie }: Props) => {
 
   return (
     <div>
-      <Header setMovie={setMovie} />
       {movie && <div className="d-flex flex-column justify-content-center">
         <h1
           className="display-1 text-center"
