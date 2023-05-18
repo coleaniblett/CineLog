@@ -28,7 +28,7 @@ const getOptions = (start: number, range: number, selected: number) => {
   }
   return nums.map((num) => {
     return (
-      <option value={`${num}`}>{num}</option>
+      <option value={`${num}`} key={`${num}/${range}`}>{num}</option>
     )
   });
 }

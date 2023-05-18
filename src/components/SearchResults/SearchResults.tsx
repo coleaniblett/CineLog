@@ -20,7 +20,9 @@ export const SearchResults: React.FC<Props> = ({ movies, setMovie }: Props) => {
     <div id="myDropdown" className="dropdown-content position-absolute w-100" style={{zIndex: 10}}>
       {movies.map(movie => {
         return (
-          <SearchLink movie={movie} setMovie={setMovie} />
+          <div key={movie.id}>
+            <SearchLink movie={movie} setMovie={setMovie} />
+          </div>
         )
       })}
     </div>
