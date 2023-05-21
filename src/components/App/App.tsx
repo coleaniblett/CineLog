@@ -15,7 +15,6 @@ import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 
 export const App: React.FC = () => {
-  //const [movie, setMovie] = useState<number | null>(null);
   const [movie, setMovie] = useState<MovieDataType | null>(null);
 
   return (

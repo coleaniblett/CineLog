@@ -4,7 +4,11 @@ import { MovieCarousel } from './MovieCarousel/MovieCarousel';
 import { MovieDataType, getMovieDataType } from '../../util/MovieDataType';
 import { TMDB } from '../../util/TMDB/TMDB';
 
-export const FrontPage: React.FC = () => {
+interface Props {
+  setMovie: any;
+}
+
+export const FrontPage: React.FC<Props> = ({ setMovie }: Props) => {
   const [featuredMovies, setFeaturedMovies] = useState<MovieDataType[]>([]);
   const [savedMovies, setSavedMovies] = useState<MovieDataType[]>([]);
   const [reviewedMovies, setReviewedMovies] = useState<MovieDataType[]>([]);
@@ -55,9 +59,9 @@ export const FrontPage: React.FC = () => {
 
   return (
     <div className="h-100 w-100 d-inline-block bg-danger">
-      <MovieCarousel movies={featuredMovies} />
-      <MovieCarousel movies={savedMovies} />
-      <MovieCarousel movies={reviewedMovies} />
+      <MovieCarousel movies={featuredMovies} setMovie={setMovie} />
+      <MovieCarousel movies={savedMovies} setMovie={setMovie} />
+      <MovieCarousel movies={reviewedMovies} setMovie={setMovie} />
     </div>
   );
 }

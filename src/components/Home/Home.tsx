@@ -9,7 +9,7 @@ interface Props {
 export const Home: React.FC<Props> = ({ setMovie }: Props) => {
   return (
     <div className="home" >
-      <FrontPage />
+      <FrontPage setMovie={setMovie} />
     </div>
   );
 }
