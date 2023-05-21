@@ -1,3 +1,4 @@
+import '../../util/root.css';
 import React, { useState, useEffect } from 'react';
 import { Signup } from '../Signup/Signup';
 import { LogIn } from '../LogIn/LogIn';
@@ -11,6 +12,7 @@ import { Movie } from '../Movie/Movie';
 import { Review } from '../Review/Review';
 import { MovieDataType } from '../../util/MovieDataType';
 import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
 
 export const App: React.FC = () => {
   //const [movie, setMovie] = useState<number | null>(null);
@@ -31,6 +33,7 @@ export const App: React.FC = () => {
             <Route path="/movie" element={<Movie setMovie={setMovie} movie={movie} />} />
             <Route path="/review" element={<Review setMovie={setMovie} movie={movie} />} />
           </Routes>
+          <Footer />
         </AuthProvider>
       </Router>
     </div>
