@@ -1,49 +1,63 @@
-import React, { useState } from 'react';
-import FillerImage from '../../assets/Everything_Everywhere_All_at_Once.jpg';
-import FillerImage2 from '../../assets/The Whale.jpg';
+import React, { useState, useEffect } from 'react';
+
 import { MovieCarousel } from './MovieCarousel/MovieCarousel';
 import { MovieDataType, getMovieDataType } from '../../util/MovieDataType';
 import { TMDB } from '../../util/TMDB/TMDB';
 
 export const FrontPage: React.FC = () => {
   const [featuredMovies, setFeaturedMovies] = useState<MovieDataType[]>([]);
+  const [savedMovies, setSavedMovies] = useState<MovieDataType[]>([]);
+  const [reviewedMovies, setReviewedMovies] = useState<MovieDataType[]>([]);
 
-  getMovieDataType(111)
-    .then(response => {
-      setFeaturedMovies(prev => {
-        return [...prev, response];
+  useEffect(() => {
+    let randNum: number | null = null;
+
+    for (let i: number = 0; i < 4; i++) {
+
+      randNum = Math.floor(Math.random() * 500);
+      getMovieDataType(randNum)
+      .then(response => {
+        if (!featuredMovies.some(movie => {
+          return movie.id === response.id;
+        })) {
+          setFeaturedMovies(prev => {
+            return [...prev, response];
+          }
+        )}
       })
-    })
-  
-  getMovieDataType(222)
-  .then(response => {
-    setFeaturedMovies(prev => {
-      return [...prev, response];
-    })
-  })
-
-  getMovieDataType(333)
-  .then(response => {
-    setFeaturedMovies(prev => {
-      return [...prev, response];
-    })
-  })
-
-  getMovieDataType(444)
-  .then(response => {
-    setFeaturedMovies(prev => {
-      return [...prev, response];
-    })
-  })
+      .catch(error => console.error(error));
+      randNum = Math.floor(Math.random() * 500);
+      getMovieDataType(randNum)
+      .then(response => {
+        if (!savedMovies.some(movie => {
+          return movie.id === response.id;
+        })) {
+          setSavedMovies(prev => {
+            return [...prev, response];
+          }
+        )}
+      })
+      .catch(error => console.error(error));
+      randNum = Math.floor(Math.random() * 500);
+      getMovieDataType(randNum)
+      .then(response => {
+        if (!reviewedMovies.some(movie => {
+          return movie.id === response.id;
+        })) {
+          setReviewedMovies(prev => {
+            return [...prev, response];
+          }
+        )}
+      })
+      .catch(error => console.error(error));
+    }
+  }, []);
 
   return (
     <div className="h-100 w-100 d-inline-block bg-danger">
-      {/* Featured movies */}
       <MovieCarousel movies={featuredMovies} />
-      {/* Saved movies */}
-      <MovieCarousel movies={featuredMovies} />
-      {/* Reviewed movies */}
-      <MovieCarousel movies={featuredMovies} />
+      <MovieCarousel movies={savedMovies} />
+      <MovieCarousel movies={reviewedMovies} />
     </div>
   );
 }
