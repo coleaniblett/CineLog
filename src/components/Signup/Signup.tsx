@@ -31,7 +31,7 @@ export const Signup: React.FC = () => {
   return (
     <Container 
       className="d-flex align-items-center justify-content-center" 
-      style={{ minHeight: "100vh", minWidth: "100vw"}}
+      style={{ minHeight: "75vh", minWidth: "100vw"}}
     >
       <div>
         <Card>
