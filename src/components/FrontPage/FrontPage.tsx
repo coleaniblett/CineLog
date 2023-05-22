@@ -5,13 +5,16 @@ import { MovieDataType, getMovieDataType } from '../../util/MovieDataType';
 import { TMDB } from '../../util/TMDB/TMDB';
 
 interface Props {
-  setMovie: any;
+  setMovie: any,
+  featuredMovies: MovieDataType[],
+  savedMovies: MovieDataType[],
+  reviewedMovies: MovieDataType[],
+  setSavedMovies: React.Dispatch<React.SetStateAction<MovieDataType[]>>, 
+  setFeaturedMovies: React.Dispatch<React.SetStateAction<MovieDataType[]>>,
+  setReviewedMovies: React.Dispatch<React.SetStateAction<MovieDataType[]>>;
 }
 
-export const FrontPage: React.FC<Props> = ({ setMovie }: Props) => {
-  const [featuredMovies, setFeaturedMovies] = useState<MovieDataType[]>([]);
-  const [savedMovies, setSavedMovies] = useState<MovieDataType[]>([]);
-  const [reviewedMovies, setReviewedMovies] = useState<MovieDataType[]>([]);
+export const FrontPage: React.FC<Props> = ({ setMovie, featuredMovies, savedMovies, reviewedMovies, setFeaturedMovies, setSavedMovies, setReviewedMovies }: Props) => {
 
   useEffect(() => {
     let randNum: number | null = null;

@@ -9,11 +9,10 @@ interface Props {
 }
 
 
-// TODO:
-// - Limit results to 5
-// - Prevent text runoff
-// - Prioritize results where search term matches beginning
-// - Styling
+// TODO: limit results to 5
+// TODO: prevent text runoff
+// TODO: prioritize results where search term matches beginning
+// TODO: styling
 
 export const SearchResults: React.FC<Props> = ({ movies, setMovie }: Props) => {
   return (

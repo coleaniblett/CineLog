@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { MovieDataType } from '../../util/MovieDataType';
 
-// TODO: replace rating-section radio with highlight-on-hoven star buttons
+// TODO: replace rating-section radio with highlight-on-hover star buttons
+// TODO: style watch date UI
+// TODO: style notes UI
+// TODO: style submit button
 
 interface Props {
   setMovie: React.Dispatch<React.SetStateAction<MovieDataType | null>>,
