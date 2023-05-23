@@ -15,8 +15,7 @@ interface Props {
 
 export const MovieCarousel: React.FC<Props> = ({movies, setMovie}: Props) => {
 
-  // TODO: better typing
-  const handleClick = (movieID: number): any => {
+  const handleClick = (movieID: number): void => {
     let newMoviePromise: Promise<MovieDataType> = getMovieDataType(movieID);
     let newMovie = newMoviePromise.then(result => { setMovie(result); });
   }
