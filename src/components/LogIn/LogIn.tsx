@@ -39,8 +39,7 @@ export const LogIn: React.FC = () => {
       </Form.Group>
       <Button type="submit" className="w-100 text-center mt-2" disabled={loading}>Log In</Button>
     </Form>) : (<Button type="submit" className="w-100 text-center mt-2" disabled={loading}>Log Out</Button>));
-  }, [])
-  
+  }, [currentUser]);
 
   return (
   <Container 
