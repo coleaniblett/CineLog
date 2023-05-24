@@ -12,9 +12,7 @@ import { Movie } from '../Movie/Movie';
 import { Review } from '../Review/Review';
 import { MovieDataType } from '../../util/MovieDataType';
 import { Header } from '../Header/Header';
-import { Footer } from '../Footer/Footer';
-
-// TODO: 
+import { Footer } from '../Footer/Footer'; 
 
 export const App: React.FC = () => {
   const [movie, setMovie] = useState<MovieDataType | null>(null);
