@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { MovieDataType, getMovieDataType } from '../../../util/MovieDataType';
+import { MovieDataType, getMovieDataType } from '../../util/MovieDataType';
 
 interface Props {
   movies: MovieDataType[],
