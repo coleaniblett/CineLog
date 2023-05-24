@@ -16,7 +16,7 @@ export const Header: React.FC<Props> = ({ setMovie }: Props) => {
       <Navbar>
         <Container>
           <div className="navbar-brand me-auto">
-            <Link to="/" className="nav-link link-warning">CineLog</Link>
+            <Link to="/" className="nav-link link-warning border border-1 border-warning p-1">CineLog</Link>
           </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
