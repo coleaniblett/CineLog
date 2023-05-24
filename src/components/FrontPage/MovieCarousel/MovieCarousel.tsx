@@ -27,8 +27,7 @@ export const MovieCarousel: React.FC<Props> = ({movies, setMovie}: Props) => {
             }}
           >
             <Link 
-              to="/movie" 
-              className="w-100 h-100"
+              to="/movie"
             >
               <img
                 className="d-block w-75 p-3 m-auto"
