@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { userInfo } from 'os';
 
 export const LogIn: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(document.createElement("input"));
