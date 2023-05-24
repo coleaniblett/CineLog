@@ -11,6 +11,11 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ setMovie }: Props) => {
+
+  const handleLogout = () => {
+    console.log("Logging out");
+  }
+
   return (
     <div className="pb-3">
       <Navbar>
@@ -29,6 +34,9 @@ export const Header: React.FC<Props> = ({ setMovie }: Props) => {
               </div>
               <div className="nav-item">
                 <Link to="/settings" className="nav-link link-warning">Settings</Link>
+              </div>
+              <div className="nav-item">
+                <Link to="" className="nav-link link-warning" onClick={handleLogout}>Log Out</Link>
               </div>
             </div>
           </Navbar.Collapse>
