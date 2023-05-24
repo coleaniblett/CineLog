@@ -1,6 +1,7 @@
-import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import { Search } from '../Search/Search';
 import { MovieDataType } from '../../util/MovieDataType';
 
@@ -11,9 +12,17 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ setMovie }: Props) => {
+  const [error, setError] = useState("");
+  const { currentUser, logout } = useAuth();
 
-  const handleLogout = () => {
-    console.log("Logging out");
+  const handleLogout = async () => {
+    setError('');
+
+    try {
+      await logout();
+    } catch {
+      setError('Failed to log out');
+    }
   }
 
   return (
@@ -36,7 +45,7 @@ export const Header: React.FC<Props> = ({ setMovie }: Props) => {
                 <Link to="/settings" className="nav-link link-warning">Settings</Link>
               </div>
               <div className="nav-item">
-                <Link to="" className="nav-link link-warning" onClick={handleLogout}>Log Out</Link>
+                <Link to="/login" className="nav-link link-warning" onClick={handleLogout}>Log Out</Link>
               </div>
             </div>
           </Navbar.Collapse>
