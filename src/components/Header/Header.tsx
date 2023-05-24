@@ -25,6 +25,18 @@ export const Header: React.FC<Props> = ({ setMovie }: Props) => {
     }
   }
 
+  const logOutLink = (
+    <div className="nav-item">
+      <Link to="/login" className="nav-link link-warning" onClick={handleLogout}>Log Out</Link>
+    </div>
+  );
+
+  const logInLink = (
+    <div>
+      <Link to="/login" className="nav-link link-warning">Log In</Link>
+    </div>
+  );
+
   return (
     <div className="pb-3">
       <Navbar>
@@ -44,9 +56,7 @@ export const Header: React.FC<Props> = ({ setMovie }: Props) => {
               <div className="nav-item">
                 <Link to="/settings" className="nav-link link-warning">Settings</Link>
               </div>
-              <div className="nav-item">
-                <Link to="/login" className="nav-link link-warning" onClick={handleLogout}>Log Out</Link>
-              </div>
+              {currentUser ? logOutLink : logInLink}
             </div>
           </Navbar.Collapse>
         </Container>
