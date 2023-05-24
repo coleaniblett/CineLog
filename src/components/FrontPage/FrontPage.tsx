@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
-import { MovieCarousel } from './MovieCarousel/MovieCarousel';
+import React, { useEffect } from 'react';
+import { MovieCarousel } from '../MovieCarousel/MovieCarousel';
 import { MovieDataType, getMovieDataType } from '../../util/MovieDataType';
-import { TMDB } from '../../util/TMDB/TMDB';
 
 interface Props {
   setMovie: any,
